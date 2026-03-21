@@ -19,30 +19,30 @@ pr: none
 
 steps:
   - task: Npm@1
-    displayName: 'npm ci'
+    displayName: "npm ci"
     inputs:
-      command: 'ci'
+      command: "ci"
 
   - task: Npm@1
-    displayName: 'npm test'
+    displayName: "npm test"
     inputs:
-      command: 'custom'
-      customCommand: 'test'
+      command: "custom"
+      customCommand: "test"
 
   - task: Npm@1
-    displayName: 'npm run build'
+    displayName: "npm run build"
     inputs:
-      command: 'custom'
-      customCommand: 'run build'
-      
-  - task: Npm@1
-    displayName: 'npm set version to build number'
-    inputs:
-      command: 'custom'
-      customCommand: 'version $(Build.BuildNumber) --no-git-tag-version'
+      command: "custom"
+      customCommand: "run build"
 
   - task: Npm@1
-    displayName: 'npm publish'
+    displayName: "npm set version to build number"
     inputs:
-      command: 'publish'
-      publishEndpoint: 'carl-hartshorn npm'
+      command: "custom"
+      customCommand: "version $(Build.BuildNumber) --no-git-tag-version"
+
+  - task: Npm@1
+    displayName: "npm publish"
+    inputs:
+      command: "publish"
+      publishEndpoint: "carl-hartshorn npm"

@@ -4,10 +4,10 @@
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "scripts": {
-    "lint": "tslint --project ./tsconfig.json",
-    "lint:fix": "tslint --project ./tsconfig.json --fix",
+    "lint": "eslint && prettier . -c",
+    "lint:fix": "eslint --fix && prettier . -w",
     "build": "tsc --build ./src/tsconfig.json",
-    "test": "ts-node ./node_modules/jasmine/bin/jasmine --config=jasmine.json"
+    "test": "vitest"
   },
   "keywords": [
     "TypeScript",
@@ -24,12 +24,15 @@
     "url": "https://github.com/carl-hartshorn/ts-simple-ioc.git"
   },
   "devDependencies": {
-    "@types/jasmine": "^3.6.7",
-    "jasmine": "^3.7.0",
-    "ts-node": "^8.10.2",
-    "typescript": "^4.2.3"
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.1.0",
+    "prettier": "^3.8.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.57.1",
+    "vitest": "^4.1.0"
   },
   "files": [
     "lib/"
-  ]
+  ],
+  "type": "module"
 }

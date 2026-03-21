@@ -17,18 +17,18 @@ pr:
 
 steps:
   - task: Npm@1
-    displayName: 'npm ci'
+    displayName: "npm ci"
     inputs:
-      command: 'ci'
+      command: "ci"
 
   - task: Npm@1
-    displayName: 'npm test'
+    displayName: "npm test"
     inputs:
-      command: 'custom'
-      customCommand: 'test'
+      command: "custom"
+      customCommand: "test"
 
   - task: Npm@1
-    displayName: 'npm run build'
+    displayName: "npm run build"
     inputs:
-      command: 'custom'
-      customCommand: 'run build'
+      command: "custom"
+      customCommand: "run build"
