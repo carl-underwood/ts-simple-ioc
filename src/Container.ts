@@ -7,7 +7,8 @@ export default class Container {
   private hasBegunResolution: boolean = false;
 
   public addSingleton<TServiceToRegister>(
-    type: { new (...args: unknown[]): TServiceToRegister },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    type: { new (...args: any[]): TServiceToRegister },
     serviceFactory: ServiceFactory<TServiceToRegister>,
   ): Container {
     this.addRegistration(type, serviceFactory, ServiceLifetime.Singleton);
@@ -15,7 +16,8 @@ export default class Container {
   }
 
   public addTransient<TServiceToRegister>(
-    type: { new (...args: unknown[]): TServiceToRegister },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    type: { new (...args: any[]): TServiceToRegister },
     serviceFactory: ServiceFactory<TServiceToRegister>,
   ): Container {
     this.addRegistration(type, serviceFactory, ServiceLifetime.Transient);
@@ -23,7 +25,8 @@ export default class Container {
   }
 
   public resolve<TService>(resolutionType: {
-    new (...args: unknown[]): TService;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    new (...args: any[]): TService;
   }): TService {
     return this.resolveInternal(resolutionType, false);
   }
@@ -34,7 +37,8 @@ export default class Container {
   }
 
   private resolveInternal<TService>(
-    serviceType: { new (...args: unknown[]): TService },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    serviceType: { new (...args: any[]): TService },
     mustBeASingleton: boolean,
   ): TService {
     if (!this.hasBegunResolution) {
@@ -76,7 +80,8 @@ export default class Container {
   }
 
   private addRegistration<TServiceToRegister>(
-    type: { new (...args: unknown[]): TServiceToRegister },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    type: { new (...args: any[]): TServiceToRegister },
     serviceFactory: ServiceFactory<TServiceToRegister>,
     serviceLifetime: ServiceLifetime,
   ): void {
@@ -106,7 +111,8 @@ export default class Container {
   }
 
   private resolveSingleton<TService>(
-    resolutionType: { new (...args: unknown[]): TService },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    resolutionType: { new (...args: any[]): TService },
     serviceRegistration: ServiceRegistration<TService> | null = null,
   ): TService {
     if (serviceRegistration) {
