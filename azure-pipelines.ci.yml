@@ -24,6 +24,12 @@ steps:
       command: "ci"
 
   - task: Npm@1
+    displayName: "npm lint"
+    inputs:
+      command: "custom"
+      customCommand: "run lint"
+
+  - task: Npm@1
     displayName: "npm test"
     inputs:
       command: "custom"
