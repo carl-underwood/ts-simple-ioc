@@ -4,6 +4,7 @@
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "scripts": {
+    "typecheck": "tsc --noEmit --project ./tsconfig.json",
     "lint": "eslint && prettier . -c",
     "lint:fix": "eslint --fix && prettier . -w",
     "build": "tsc --build ./src/tsconfig.json",

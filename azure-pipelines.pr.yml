@@ -22,7 +22,13 @@ steps:
       command: "ci"
 
   - task: Npm@1
-    displayName: "npm lint"
+    displayName: "npm run typecheck"
+    inputs:
+      command: "custom"
+      customCommand: "run typecheck"
+
+  - task: Npm@1
+    displayName: "npm run lint"
     inputs:
       command: "custom"
       customCommand: "run lint"
