@@ -1,4 +1,4 @@
 export enum ServiceLifetime {
-    Singleton = "singleton",
-    Transient = "transient",
+  Singleton = "singleton",
+  Transient = "transient",
 }

@@ -1,3 +1,3 @@
-export type ServiceResolver = <TServiceToResolve>(
-    serviceType: { new(...args: any[]): TServiceToResolve })
-    => TServiceToResolve;
+export type ServiceResolver = <TServiceToResolve>(serviceType: {
+  new (...args: unknown[]): TServiceToResolve;
+}) => TServiceToResolve;

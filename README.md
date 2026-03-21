@@ -28,15 +28,18 @@ npm install --save ts-simple-ioc
 import { Container } from "ts-simple-ioc";
 
 class ExampleService {
-    constructor(public dependency: ExampleDependency) {}
+  constructor(public dependency: ExampleDependency) {}
 }
 
 class ExampleDependency {}
 
 const container = new Container()
-    .addTransient(ExampleService, (resolve) => new ExampleService(resolve(ExampleDependency)))
-    .addSingleton(ExampleDependency, () => new ExampleDependency())
-    .beginResolution();
+  .addTransient(
+    ExampleService,
+    (resolve) => new ExampleService(resolve(ExampleDependency)),
+  )
+  .addSingleton(ExampleDependency, () => new ExampleDependency())
+  .beginResolution();
 
 const service = container.resolve(ExampleService);
 ```
